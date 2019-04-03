@@ -71,7 +71,7 @@ const DashCard = props => {
                 <Grid item xs={12}>
                     <div style={section}>
                         <Card className={classes.card}>
-                            <CardHeader title="Current Drone Data"/>
+                            <CardHeader title="Metric Chart"/>
                             <CardContent style={{textAlign: "center"}}>
                                 <ChartView/>
                             </CardContent>
