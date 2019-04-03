@@ -18,7 +18,7 @@ const droneDataReceived = (state, action) => {
     return {
         ...state,
         loading: false,
-        drone_data: data.data,
+        drone_data: data,
         current_data: data[data.length - 1],
         error: false
 

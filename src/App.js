@@ -2,12 +2,12 @@ import React from "react";
 import createStore from "./store";
 import {Provider} from "react-redux";
 import {ToastContainer} from "react-toastify";
-import {MuiThemeProvider, createMuiTheme} from "@material-ui/core/styles";
+import {createMuiTheme, MuiThemeProvider} from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import "react-toastify/dist/ReactToastify.css";
 import Header from "./components/Header";
 import Wrapper from "./components/Wrapper";
-import NowWhat from "./components/DashCard";
+import DashCard from "./components/DashCard";
 
 const store = createStore();
 const theme = createMuiTheme({
@@ -33,8 +33,10 @@ const App = props => (
         <Provider store={store}>
             <Wrapper>
                 <Header/>
-                <NowWhat/>
-                <ToastContainer/>
+                <div style={{margin: '1rem'}}>
+                    <DashCard/>
+                    <ToastContainer/>
+                </div>
             </Wrapper>
         </Provider>
     </MuiThemeProvider>

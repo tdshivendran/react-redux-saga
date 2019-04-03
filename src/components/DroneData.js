@@ -4,6 +4,7 @@ import * as actions from "../store/actions";
 import List from "@material-ui/core/List/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 class DroneData extends Component {
     constructor(props) {
@@ -57,7 +58,17 @@ class DroneData extends Component {
     }
 
     render() {
-        const {current_data, error} = this.props;
+        const { loading, current_data, error} = this.props;
+
+        if(loading) {
+            return(
+                <div style={{height: '100%'}}>
+                    <div style={{top: '50%'}}>
+                        <CircularProgress />
+                    </div>
+                </div>
+            );
+        }
 
         if(error){
             return (
@@ -120,8 +131,8 @@ class DroneData extends Component {
 }
 
 const mapState = (state, ownProps) => {
-    const {loading, drone_data, metric, current_data, error} = state.droneData;
-    return {loading, drone_data, metric, current_data, error};
+    const {loading, drone_data, current_data, error} = state.droneData;
+    return {loading, drone_data, current_data, error};
 };
 
 const mapDispatch = dispatch => ({
