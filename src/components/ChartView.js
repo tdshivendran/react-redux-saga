@@ -21,10 +21,10 @@ class ChartView extends React.Component {
     handleChangeData() {
 
         // shift
-        this.setState(({ left = 0}) => {
+        this.setState(({left = 0}) => {
             return {
                 animation: true,
-                left: left - 45
+                left: left - 2
             };
         });
 
@@ -37,6 +37,7 @@ class ChartView extends React.Component {
     render() {
         const {drone_data} = this.props;
         const {animation, left} = this.state;
+
         var arr_drone_data = Array.from(Object.keys(drone_data), k=>drone_data[k]);
 
         return (
@@ -50,13 +51,14 @@ class ChartView extends React.Component {
                     >
                         <CartesianGrid stroke='#f5f5f5'/>
                         <XAxis
+                            label={{ value: "Timestamp", position: "centerBottom", dy: 20}}
                             dataKey="timestamp"
                             padding={{left: left, right: -300}}
                             tick={true}
                             domain={['dataMin', 'dataMax']}
                             tickFormatter = {(unixTime) => moment(unixTime).format('hh:mm')}
                             type = 'number'
-                            // scale = 'time'
+                            scale = 'time'
                         />
                         <YAxis
                             type="number"
