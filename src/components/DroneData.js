@@ -55,6 +55,9 @@ class DroneData extends Component {
             if(seconds === 1) { return seconds + ' second ago'}
             return seconds + ' seconds ago'
         }
+        else {
+            return 'now';
+        }
     }
 
     render() {
